@@ -145,6 +145,7 @@ html, body {
 
 .btn {
   margin: 5px;
+  min-width: 120px
 }
 
 .btn-cancel {

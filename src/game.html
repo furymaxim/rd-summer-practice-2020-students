@@ -5,17 +5,54 @@
     <title>study game</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="game.css" type="text/css">
-    <!--  TODO: Раскомментировать при начале работы с сервером -->
-<!--    <link rel="stylesheet" href="/css/bootstrap.css" type="text/css" />-->
-<!--    <link rel="stylesheet" href="/css/bootstrap-theme.css" type="text/css" />-->
-
-    <!--  TODO: Закомментировать при начале работы с сервером -->
-<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"-->
-<!--          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
+    <link rel="stylesheet" href="/css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="/css/bootstrap-theme.css" type="text/css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
 <!-- TODO: Task 0. Построить вёрстку приложения по макету
           используя для сетки bootstrap -->
+<div id="game" class="game">
+     <div id="main"> 
+        <div class="col-md-12" id="gameInfo">
+           <span id="gameTitle">123456789</span>
+           <div class ="gameStatus">
+               <span id="game-status">Открыта регистрация</span>
+           </div>
+        </div>
+        <div class="col-md-12" id="timer"> <span class="game-timer">00:00</span></div>
+        <div class="col-md-3" id="team1">
+            <div class="team1-title">
+                <span id="team1Title" class="title title-team1">Команда 1</span>
+            </div>
+            <div id="team1Scores">
+                <div class="lifes">Жизни:<span id="team1LifesCount">0</span></div>
+                <div class="coins">Монеты:<span id="team1CoinsCount">0</span></div>
+            </div>
+            <div id="team1Players"></div>
+        </div>
+        <div class="col-md-6" id="gameField">
+            <canvas id="canvasField"></canvas>
+        </div>
+        <div class="col-md-3" id="team2">
+            <div class="team2-title">
+                <span id="team2Title" class="title title-team2">Команда 2</span>
+            </div>
+            <div id="team2Scores">
+                <div class="lifes">Жизни:<span id="team2LifesCount">0</span></div>
+                <div class="coins">Монеты:<span id="team2CoinsCount">0</span></div>
+            </div>
+            <div id="team2Players"></div>
+        </div>
+     </div>
+    <div id="controls" class="col-md-12"></div>
+        <div id="gameList" class="btn btn-primary col-md-1"><span>К списку игр</span></div>
+        <div id="startGame" class="btn btn-primary col-md-1"><span>Начать игру</span></div>
+        <div id="leaveGame" class="btn btn-primary col-md-1"><span>Покинуть игру</span></div>
+        <div id="cancelGame" class="btn btn-cancel col-md-1"><span id="cancel-game">Прервать игру</span></div>
+    </div>
+</div>
 
 <div class="hidden">
     <img id="img_heart"

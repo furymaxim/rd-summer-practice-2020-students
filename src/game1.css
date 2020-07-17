@@ -1,0 +1,157 @@
+.hidden{
+  display: none;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.game {
+  background-color: #212121;
+  height: 100%;
+  margin: 0;
+}
+
+#gameInfo {
+  width: 80%;
+  min-height: 10%;
+  margin-top: 30px;
+  margin-left: 10%;
+  display: flex;
+  padding: 1%;
+  border-radius: 10px;
+  justify-content: left;
+  background-color: #353535;
+}
+
+#gameTitle {
+  color: white;
+  font-size: 2em;
+}
+
+.gameStatus {
+  background-color: #f8c327;
+  margin-left: 1em;
+  padding: 10px;
+  font-size: 16px;
+  box-shadow: 0 0 10px rgba(253, 253, 253, 0.5);
+}
+
+#timer {
+  width: 100%;
+  min-height: 10%;
+  margin-top: 30px;
+  display: flex;
+  min-height: 8%;
+  justify-content: center;
+}
+
+.game-timer {
+  color: orange;
+  font-size: 4em
+}
+
+#team1, #team2 {
+  margin-top: 20px;
+}
+
+#team1 {
+  border-radius: 5px;
+  border-color: #21415f;
+  border-style: solid;
+  padding: 3px;
+}
+
+.team1-title {
+  background-color: #2a82ec;
+  font-size: 1.75em;
+  padding: 5px;
+  color: white;
+}
+
+#team1Scores, #team2Scores {
+  background-color: white;
+}
+
+
+.lifes {
+  color: green;
+  font-size: 1.3em;
+  margin-left: 5px;
+}
+
+.coins {
+  color: rgb(187, 55, 228);
+  font-size: 1.3em;
+  margin-left: 5px;
+}
+
+#team1Players {
+  min-height: 50px;
+  background-color: #4b1103
+}
+
+#team1LifesCount, #team1CoinsCount {
+  float: right;
+  margin-right: 10px;
+}
+
+#team2 {
+  border-radius: 5px;
+  border-color: #f8c327;
+  border-style: solid;
+  padding: 3px;
+}
+
+.team2-title {
+  background-color: #f8c327;
+  font-size: 1.75em;
+  padding: 5px;
+  color: white;
+}
+
+.lifes {
+  color: green;
+  font-size: 1.3em;
+  margin-left: 5px;
+}
+
+.coins {
+  color: rgb(187, 55, 228);
+  font-size: 1.3em;
+  margin-left: 5px;
+}
+
+#team2Players {
+  min-height: 50px;
+  background-color: #4b1103
+}
+
+#team2LifesCount, #team2CoinsCount {
+  float: right;
+  margin-right: 10px;
+}
+
+#gamefield {
+  
+}
+
+
+#controls {
+  margin-top: 20px;
+  margin-left: 1em;
+}
+
+.btn {
+  margin: 5px;
+  min-width: 120px
+}
+
+.btn-cancel {
+  background-color: #8b2a27;
+}
+
+#cancel-game {
+  color: white;
+}

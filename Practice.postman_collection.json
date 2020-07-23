@@ -1,0 +1,644 @@
+{
+	"info": {
+		"_postman_id": "ca4618bf-99d8-4e3c-b7b6-997e819a6c9d",
+		"name": "Practice",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f59942f6-b250-4881-bc92-4cf03f3fac3c",
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Value check\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.login).to.eql(\"furymaximec4\")\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Login\": \"furymaximec4\",\r\n  \"NativeName\": \"Fury Maximec4\",\r\n  \"Password\": \"strongPw\",\r\n  \"ConfirmPassword\": \"strongPw\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://104.40.150.146/api/user",
+					"protocol": "http",
+					"host": [
+						"104",
+						"40",
+						"150",
+						"146"
+					],
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "My Info",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cf651e6a-77cf-4b77-b202-8c4c955015d3",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Value check\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.login).to.eql(\"MaximLovkin\")\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAAAZ-KQx9Y8kGFX7ItjR4uNgAAAAACAAAAAAAQZgAAAAEAACAAAAB-cUlN7xE1twjXDh5FH8EIJw35mF_RSwI-f6Ptlef--AAAAAAOgAAAAAIAACAAAACz9Jj-7ZF5QNvs7isMaUWL8I1BGo02RDX4Wom4oTvu5zABAABYAk90tQkxcfXVUFKF9M1LWw03iKcbgbWPVZ2jz2Z1U44DGqslIoUa8vBIiTHvInKmUs_PGKtZdeYOAELqutzcLl0Se_1hC87Vhbd6NaZwGexFZKPdYjljgkf-UBj07kV84tT0rGo4lOIVbGaQS5rKHRfp6ZRjE94fizndIk8Pbr27OLAVi9VQIJYV8g7eq_PusEU07yLKwW9MlGeP-rvC99MYErN1dEwqfwkcq1enkstGdnNKhdoFla6MVfsKS_xKLKNnGfTq0hcfuSppNF36dtlc3v7wsSSEpBcYPKJT8dI9IUMprtORx66p6HHAIn_XgLcRsKEk7Ps4vm5YeHtGer7jdhFMhMKGpxw3fGR6Y-VNScFm075L1aiJOvksBkPseh4Rj7lPWx-GrMKHZLc8QAAAAKl21jzT4RW-8Gay3jhvP3kHH8zNUiEVNpCX8HcBWSY0T-n5uFa6pW06XMcbQISHdSUdCCsXNtDyz7wqlDcnULw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://104.40.150.146/api/me",
+					"protocol": "http",
+					"host": [
+						"104",
+						"40",
+						"150",
+						"146"
+					],
+					"path": [
+						"api",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RefreshMyInfo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f024e713-3661-4049-9cec-42b53560abd6",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Value check\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.nativeName).to.eql(\"JustAName\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAAAZ-KQx9Y8kGFX7ItjR4uNgAAAAACAAAAAAAQZgAAAAEAACAAAAB-cUlN7xE1twjXDh5FH8EIJw35mF_RSwI-f6Ptlef--AAAAAAOgAAAAAIAACAAAACz9Jj-7ZF5QNvs7isMaUWL8I1BGo02RDX4Wom4oTvu5zABAABYAk90tQkxcfXVUFKF9M1LWw03iKcbgbWPVZ2jz2Z1U44DGqslIoUa8vBIiTHvInKmUs_PGKtZdeYOAELqutzcLl0Se_1hC87Vhbd6NaZwGexFZKPdYjljgkf-UBj07kV84tT0rGo4lOIVbGaQS5rKHRfp6ZRjE94fizndIk8Pbr27OLAVi9VQIJYV8g7eq_PusEU07yLKwW9MlGeP-rvC99MYErN1dEwqfwkcq1enkstGdnNKhdoFla6MVfsKS_xKLKNnGfTq0hcfuSppNF36dtlc3v7wsSSEpBcYPKJT8dI9IUMprtORx66p6HHAIn_XgLcRsKEk7Ps4vm5YeHtGer7jdhFMhMKGpxw3fGR6Y-VNScFm075L1aiJOvksBkPseh4Rj7lPWx-GrMKHZLc8QAAAAKl21jzT4RW-8Gay3jhvP3kHH8zNUiEVNpCX8HcBWSY0T-n5uFa6pW06XMcbQISHdSUdCCsXNtDyz7wqlDcnULw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"NativeName\": \"JustAName\",\r\n  \"Role\": 1,\r\n  \"OldPassword\": \"123456\",\r\n  \"Password\": \"1234567\",\r\n  \"ConfirmPassword\": \"1234567\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://104.40.150.146/api/user/719d1e7ad708439c813ebb492f1988f1",
+					"protocol": "http",
+					"host": [
+						"104",
+						"40",
+						"150",
+						"146"
+					],
+					"path": [
+						"api",
+						"user",
+						"719d1e7ad708439c813ebb492f1988f1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get user info",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5d64629f-78bd-44f2-ad6d-ea2a53c20d7d",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Value check\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.login).to.eql(\"MaximLovkin\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAAAZ-KQx9Y8kGFX7ItjR4uNgAAAAACAAAAAAAQZgAAAAEAACAAAAB-cUlN7xE1twjXDh5FH8EIJw35mF_RSwI-f6Ptlef--AAAAAAOgAAAAAIAACAAAACz9Jj-7ZF5QNvs7isMaUWL8I1BGo02RDX4Wom4oTvu5zABAABYAk90tQkxcfXVUFKF9M1LWw03iKcbgbWPVZ2jz2Z1U44DGqslIoUa8vBIiTHvInKmUs_PGKtZdeYOAELqutzcLl0Se_1hC87Vhbd6NaZwGexFZKPdYjljgkf-UBj07kV84tT0rGo4lOIVbGaQS5rKHRfp6ZRjE94fizndIk8Pbr27OLAVi9VQIJYV8g7eq_PusEU07yLKwW9MlGeP-rvC99MYErN1dEwqfwkcq1enkstGdnNKhdoFla6MVfsKS_xKLKNnGfTq0hcfuSppNF36dtlc3v7wsSSEpBcYPKJT8dI9IUMprtORx66p6HHAIn_XgLcRsKEk7Ps4vm5YeHtGer7jdhFMhMKGpxw3fGR6Y-VNScFm075L1aiJOvksBkPseh4Rj7lPWx-GrMKHZLc8QAAAAKl21jzT4RW-8Gay3jhvP3kHH8zNUiEVNpCX8HcBWSY0T-n5uFa6pW06XMcbQISHdSUdCCsXNtDyz7wqlDcnULw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://104.40.150.146/api/user/719d1e7ad708439c813ebb492f1988f1",
+					"protocol": "http",
+					"host": [
+						"104",
+						"40",
+						"150",
+						"146"
+					],
+					"path": [
+						"api",
+						"user",
+						"719d1e7ad708439c813ebb492f1988f1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Map list",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d32a5072-62b9-4d13-aed2-71a2f776e3b8",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAAAZ-KQx9Y8kGFX7ItjR4uNgAAAAACAAAAAAAQZgAAAAEAACAAAAB-cUlN7xE1twjXDh5FH8EIJw35mF_RSwI-f6Ptlef--AAAAAAOgAAAAAIAACAAAACz9Jj-7ZF5QNvs7isMaUWL8I1BGo02RDX4Wom4oTvu5zABAABYAk90tQkxcfXVUFKF9M1LWw03iKcbgbWPVZ2jz2Z1U44DGqslIoUa8vBIiTHvInKmUs_PGKtZdeYOAELqutzcLl0Se_1hC87Vhbd6NaZwGexFZKPdYjljgkf-UBj07kV84tT0rGo4lOIVbGaQS5rKHRfp6ZRjE94fizndIk8Pbr27OLAVi9VQIJYV8g7eq_PusEU07yLKwW9MlGeP-rvC99MYErN1dEwqfwkcq1enkstGdnNKhdoFla6MVfsKS_xKLKNnGfTq0hcfuSppNF36dtlc3v7wsSSEpBcYPKJT8dI9IUMprtORx66p6HHAIn_XgLcRsKEk7Ps4vm5YeHtGer7jdhFMhMKGpxw3fGR6Y-VNScFm075L1aiJOvksBkPseh4Rj7lPWx-GrMKHZLc8QAAAAKl21jzT4RW-8Gay3jhvP3kHH8zNUiEVNpCX8HcBWSY0T-n5uFa6pW06XMcbQISHdSUdCCsXNtDyz7wqlDcnULw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://104.40.150.146/api/map",
+					"protocol": "http",
+					"host": [
+						"104",
+						"40",
+						"150",
+						"146"
+					],
+					"path": [
+						"api",
+						"map"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create game",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9725a8b8-79d1-4523-a896-e77e5b1bc036",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Value check\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.name).to.eql(\"MyMapMaxim\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAAAZ-KQx9Y8kGFX7ItjR4uNgAAAAACAAAAAAAQZgAAAAEAACAAAAB-cUlN7xE1twjXDh5FH8EIJw35mF_RSwI-f6Ptlef--AAAAAAOgAAAAAIAACAAAACz9Jj-7ZF5QNvs7isMaUWL8I1BGo02RDX4Wom4oTvu5zABAABYAk90tQkxcfXVUFKF9M1LWw03iKcbgbWPVZ2jz2Z1U44DGqslIoUa8vBIiTHvInKmUs_PGKtZdeYOAELqutzcLl0Se_1hC87Vhbd6NaZwGexFZKPdYjljgkf-UBj07kV84tT0rGo4lOIVbGaQS5rKHRfp6ZRjE94fizndIk8Pbr27OLAVi9VQIJYV8g7eq_PusEU07yLKwW9MlGeP-rvC99MYErN1dEwqfwkcq1enkstGdnNKhdoFla6MVfsKS_xKLKNnGfTq0hcfuSppNF36dtlc3v7wsSSEpBcYPKJT8dI9IUMprtORx66p6HHAIn_XgLcRsKEk7Ps4vm5YeHtGer7jdhFMhMKGpxw3fGR6Y-VNScFm075L1aiJOvksBkPseh4Rj7lPWx-GrMKHZLc8QAAAAKl21jzT4RW-8Gay3jhvP3kHH8zNUiEVNpCX8HcBWSY0T-n5uFa6pW06XMcbQISHdSUdCCsXNtDyz7wqlDcnULw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Name\": \"MyMapMaxim\",\r\n  \"MapId\": \"ce808fae80274353bd85743ec4d21fc8\",\r\n  \"SwitchTimeout\": 50000,\r\n  \"StartupTeamLives\": 3,\r\n  \"PoliceSpeed\": 2,\r\n  \"ThiefSpeed\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://104.40.150.146/api/game",
+					"protocol": "http",
+					"host": [
+						"104",
+						"40",
+						"150",
+						"146"
+					],
+					"path": [
+						"api",
+						"game"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Games list",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "70474ea5-0895-4b0e-aa62-2db57347c8f6",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Value check\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.start).to.eql(0);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAAAZ-KQx9Y8kGFX7ItjR4uNgAAAAACAAAAAAAQZgAAAAEAACAAAAB-cUlN7xE1twjXDh5FH8EIJw35mF_RSwI-f6Ptlef--AAAAAAOgAAAAAIAACAAAACz9Jj-7ZF5QNvs7isMaUWL8I1BGo02RDX4Wom4oTvu5zABAABYAk90tQkxcfXVUFKF9M1LWw03iKcbgbWPVZ2jz2Z1U44DGqslIoUa8vBIiTHvInKmUs_PGKtZdeYOAELqutzcLl0Se_1hC87Vhbd6NaZwGexFZKPdYjljgkf-UBj07kV84tT0rGo4lOIVbGaQS5rKHRfp6ZRjE94fizndIk8Pbr27OLAVi9VQIJYV8g7eq_PusEU07yLKwW9MlGeP-rvC99MYErN1dEwqfwkcq1enkstGdnNKhdoFla6MVfsKS_xKLKNnGfTq0hcfuSppNF36dtlc3v7wsSSEpBcYPKJT8dI9IUMprtORx66p6HHAIn_XgLcRsKEk7Ps4vm5YeHtGer7jdhFMhMKGpxw3fGR6Y-VNScFm075L1aiJOvksBkPseh4Rj7lPWx-GrMKHZLc8QAAAAKl21jzT4RW-8Gay3jhvP3kHH8zNUiEVNpCX8HcBWSY0T-n5uFa6pW06XMcbQISHdSUdCCsXNtDyz7wqlDcnULw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://104.40.150.146/api/games?start=0&count=2",
+					"protocol": "http",
+					"host": [
+						"104",
+						"40",
+						"150",
+						"146"
+					],
+					"path": [
+						"api",
+						"games"
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "0"
+						},
+						{
+							"key": "count",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Game Info",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8b51b162-0b9c-4fcc-ba12-55af4da23931",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAAAZ-KQx9Y8kGFX7ItjR4uNgAAAAACAAAAAAAQZgAAAAEAACAAAAB-cUlN7xE1twjXDh5FH8EIJw35mF_RSwI-f6Ptlef--AAAAAAOgAAAAAIAACAAAACz9Jj-7ZF5QNvs7isMaUWL8I1BGo02RDX4Wom4oTvu5zABAABYAk90tQkxcfXVUFKF9M1LWw03iKcbgbWPVZ2jz2Z1U44DGqslIoUa8vBIiTHvInKmUs_PGKtZdeYOAELqutzcLl0Se_1hC87Vhbd6NaZwGexFZKPdYjljgkf-UBj07kV84tT0rGo4lOIVbGaQS5rKHRfp6ZRjE94fizndIk8Pbr27OLAVi9VQIJYV8g7eq_PusEU07yLKwW9MlGeP-rvC99MYErN1dEwqfwkcq1enkstGdnNKhdoFla6MVfsKS_xKLKNnGfTq0hcfuSppNF36dtlc3v7wsSSEpBcYPKJT8dI9IUMprtORx66p6HHAIn_XgLcRsKEk7Ps4vm5YeHtGer7jdhFMhMKGpxw3fGR6Y-VNScFm075L1aiJOvksBkPseh4Rj7lPWx-GrMKHZLc8QAAAAKl21jzT4RW-8Gay3jhvP3kHH8zNUiEVNpCX8HcBWSY0T-n5uFa6pW06XMcbQISHdSUdCCsXNtDyz7wqlDcnULw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://104.40.150.146/api/game/8f8c3b5a905d41078b0cd96c85bf6ff5",
+					"protocol": "http",
+					"host": [
+						"104",
+						"40",
+						"150",
+						"146"
+					],
+					"path": [
+						"api",
+						"game",
+						"8f8c3b5a905d41078b0cd96c85bf6ff5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User games",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7262174d-b2a6-4d33-b6b7-c0164d4e55c7",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAAAZ-KQx9Y8kGFX7ItjR4uNgAAAAACAAAAAAAQZgAAAAEAACAAAAB-cUlN7xE1twjXDh5FH8EIJw35mF_RSwI-f6Ptlef--AAAAAAOgAAAAAIAACAAAACz9Jj-7ZF5QNvs7isMaUWL8I1BGo02RDX4Wom4oTvu5zABAABYAk90tQkxcfXVUFKF9M1LWw03iKcbgbWPVZ2jz2Z1U44DGqslIoUa8vBIiTHvInKmUs_PGKtZdeYOAELqutzcLl0Se_1hC87Vhbd6NaZwGexFZKPdYjljgkf-UBj07kV84tT0rGo4lOIVbGaQS5rKHRfp6ZRjE94fizndIk8Pbr27OLAVi9VQIJYV8g7eq_PusEU07yLKwW9MlGeP-rvC99MYErN1dEwqfwkcq1enkstGdnNKhdoFla6MVfsKS_xKLKNnGfTq0hcfuSppNF36dtlc3v7wsSSEpBcYPKJT8dI9IUMprtORx66p6HHAIn_XgLcRsKEk7Ps4vm5YeHtGer7jdhFMhMKGpxw3fGR6Y-VNScFm075L1aiJOvksBkPseh4Rj7lPWx-GrMKHZLc8QAAAAKl21jzT4RW-8Gay3jhvP3kHH8zNUiEVNpCX8HcBWSY0T-n5uFa6pW06XMcbQISHdSUdCCsXNtDyz7wqlDcnULw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://104.40.150.146/api/games?start=1&count=1",
+					"protocol": "http",
+					"host": [
+						"104",
+						"40",
+						"150",
+						"146"
+					],
+					"path": [
+						"api",
+						"games"
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "1"
+						},
+						{
+							"key": "count",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete game",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ec1c3f6c-7736-4831-882f-4e5657722791",
+						"exec": [
+							"pm.test(\"Status code is 202\", function () {\r",
+							"    pm.response.to.have.status(202);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAAAZ-KQx9Y8kGFX7ItjR4uNgAAAAACAAAAAAAQZgAAAAEAACAAAAB-cUlN7xE1twjXDh5FH8EIJw35mF_RSwI-f6Ptlef--AAAAAAOgAAAAAIAACAAAACz9Jj-7ZF5QNvs7isMaUWL8I1BGo02RDX4Wom4oTvu5zABAABYAk90tQkxcfXVUFKF9M1LWw03iKcbgbWPVZ2jz2Z1U44DGqslIoUa8vBIiTHvInKmUs_PGKtZdeYOAELqutzcLl0Se_1hC87Vhbd6NaZwGexFZKPdYjljgkf-UBj07kV84tT0rGo4lOIVbGaQS5rKHRfp6ZRjE94fizndIk8Pbr27OLAVi9VQIJYV8g7eq_PusEU07yLKwW9MlGeP-rvC99MYErN1dEwqfwkcq1enkstGdnNKhdoFla6MVfsKS_xKLKNnGfTq0hcfuSppNF36dtlc3v7wsSSEpBcYPKJT8dI9IUMprtORx66p6HHAIn_XgLcRsKEk7Ps4vm5YeHtGer7jdhFMhMKGpxw3fGR6Y-VNScFm075L1aiJOvksBkPseh4Rj7lPWx-GrMKHZLc8QAAAAKl21jzT4RW-8Gay3jhvP3kHH8zNUiEVNpCX8HcBWSY0T-n5uFa6pW06XMcbQISHdSUdCCsXNtDyz7wqlDcnULw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://104.40.150.146/api/game/bee33d121e2f43dfb0b92652950e9c9d",
+					"protocol": "http",
+					"host": [
+						"104",
+						"40",
+						"150",
+						"146"
+					],
+					"path": [
+						"api",
+						"game",
+						"bee33d121e2f43dfb0b92652950e9c9d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Maps list",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e19f9da1-efab-442d-b86d-ff504f545041",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAAAZ-KQx9Y8kGFX7ItjR4uNgAAAAACAAAAAAAQZgAAAAEAACAAAAB-cUlN7xE1twjXDh5FH8EIJw35mF_RSwI-f6Ptlef--AAAAAAOgAAAAAIAACAAAACz9Jj-7ZF5QNvs7isMaUWL8I1BGo02RDX4Wom4oTvu5zABAABYAk90tQkxcfXVUFKF9M1LWw03iKcbgbWPVZ2jz2Z1U44DGqslIoUa8vBIiTHvInKmUs_PGKtZdeYOAELqutzcLl0Se_1hC87Vhbd6NaZwGexFZKPdYjljgkf-UBj07kV84tT0rGo4lOIVbGaQS5rKHRfp6ZRjE94fizndIk8Pbr27OLAVi9VQIJYV8g7eq_PusEU07yLKwW9MlGeP-rvC99MYErN1dEwqfwkcq1enkstGdnNKhdoFla6MVfsKS_xKLKNnGfTq0hcfuSppNF36dtlc3v7wsSSEpBcYPKJT8dI9IUMprtORx66p6HHAIn_XgLcRsKEk7Ps4vm5YeHtGer7jdhFMhMKGpxw3fGR6Y-VNScFm075L1aiJOvksBkPseh4Rj7lPWx-GrMKHZLc8QAAAAKl21jzT4RW-8Gay3jhvP3kHH8zNUiEVNpCX8HcBWSY0T-n5uFa6pW06XMcbQISHdSUdCCsXNtDyz7wqlDcnULw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://104.40.150.146/api/maps",
+					"protocol": "http",
+					"host": [
+						"104",
+						"40",
+						"150",
+						"146"
+					],
+					"path": [
+						"api",
+						"maps"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User maps",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0ce24441-a442-4f64-9123-3f6c5e3c0612",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAAAZ-KQx9Y8kGFX7ItjR4uNgAAAAACAAAAAAAQZgAAAAEAACAAAAB-cUlN7xE1twjXDh5FH8EIJw35mF_RSwI-f6Ptlef--AAAAAAOgAAAAAIAACAAAACz9Jj-7ZF5QNvs7isMaUWL8I1BGo02RDX4Wom4oTvu5zABAABYAk90tQkxcfXVUFKF9M1LWw03iKcbgbWPVZ2jz2Z1U44DGqslIoUa8vBIiTHvInKmUs_PGKtZdeYOAELqutzcLl0Se_1hC87Vhbd6NaZwGexFZKPdYjljgkf-UBj07kV84tT0rGo4lOIVbGaQS5rKHRfp6ZRjE94fizndIk8Pbr27OLAVi9VQIJYV8g7eq_PusEU07yLKwW9MlGeP-rvC99MYErN1dEwqfwkcq1enkstGdnNKhdoFla6MVfsKS_xKLKNnGfTq0hcfuSppNF36dtlc3v7wsSSEpBcYPKJT8dI9IUMprtORx66p6HHAIn_XgLcRsKEk7Ps4vm5YeHtGer7jdhFMhMKGpxw3fGR6Y-VNScFm075L1aiJOvksBkPseh4Rj7lPWx-GrMKHZLc8QAAAAKl21jzT4RW-8Gay3jhvP3kHH8zNUiEVNpCX8HcBWSY0T-n5uFa6pW06XMcbQISHdSUdCCsXNtDyz7wqlDcnULw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://104.40.150.146/api/user/719d1e7ad708439c813ebb492f1988f1/maps",
+					"protocol": "http",
+					"host": [
+						"104",
+						"40",
+						"150",
+						"146"
+					],
+					"path": [
+						"api",
+						"user",
+						"719d1e7ad708439c813ebb492f1988f1",
+						"maps"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
